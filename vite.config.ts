@@ -1,7 +1,13 @@
 import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig, lazyPlugins } from 'vite-plus'
+import { AntdvNextResolver } from '@antdv-next/auto-import-resolver'
+import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
+import { visualizer } from 'rollup-plugin-visualizer'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
@@ -15,10 +21,46 @@ export default defineConfig({
     options: { typeAware: true, typeCheck: true },
   },
   fmt: {
+    ignorePatterns: ['auto-imports.d.ts', 'components.d.ts'],
     semi: false,
     singleQuote: true,
   },
-  plugins: lazyPlugins(() => [vue(), vueDevTools()]),
+  test: {
+    server: {
+      deps: {
+        inline: ['antdv-next', /\/node_modules\/@v-c\/picker\//],
+      },
+    },
+  },
+  plugins: lazyPlugins(() => [
+    vue(),
+    tailwindcss(),
+    AutoImport({
+      imports: [
+        'vue',
+        '@vueuse/core',
+        {
+          'vue-i18n': ['useI18n'],
+        },
+      ],
+      dts: 'auto-imports.d.ts',
+    }),
+    Components({
+      resolvers: [AntdvNextResolver()],
+    }),
+    createSvgIconsPlugin({
+      iconDirs: [fileURLToPath(new URL('./src/assets/icons', import.meta.url))],
+      symbolId: 'icon-[dir]-[name]',
+    }),
+    vueDevTools(),
+    visualizer({
+      filename: 'dist/bundle-analysis.html',
+      template: 'treemap',
+      gzipSize: true,
+      brotliSize: true,
+      sourcemap: false,
+    }),
+  ]),
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

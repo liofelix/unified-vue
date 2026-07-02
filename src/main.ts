@@ -1,12 +1,18 @@
 import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import 'dayjs/locale/zh-cn'
 
 import App from './App.vue'
+import i18n from './locales'
 import router from './router'
+import pinia from './stores'
+import 'virtual:svg-icons-register'
+import '@/assets/styles/index.css'
+import '@/assets/styles/base.scss'
 
 const app = createApp(App)
 
-app.use(createPinia())
+app.use(pinia)
+app.use(i18n)
 app.use(router)
 
 app.mount('#app')

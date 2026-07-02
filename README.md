@@ -1,6 +1,18 @@
 # unified-vue
 
-This template should help get you started developing with Vue 3 in Vite.
+`unified-vue` 是一个基于 Vue 3 和 Vite+ 的前端项目，使用 Pinia 管理全局状态，使用 `vue-i18n` 管理应用文案，使用 Antdv Next 作为组件库。
+
+## 语言切换
+
+应用入口在 `src/main.ts` 中注册 Pinia、`vue-i18n`、路由和 SVG 图标符号表。`src/App.vue` 通过 `a-config-provider` 注入当前 Antdv Next 语言包，并在启动时初始化语言状态。
+
+`src/components/AppLocaleSwitcher.vue` 提供语言切换入口：
+
+- 使用图标型文本按钮展示 `common-language` SVG 图标。
+- 通过 Antdv Next `a-dropdown` 展示 `简体中文` 和 `English` 两个菜单项。
+- 菜单选中项来自 `src/stores/locale/index.ts` 中的 `locale`。
+- 切换语言时同步更新 `vue-i18n`、`dayjs` 和 Antdv Next 的 locale。
+- 当前语言会通过 `pinia-plugin-persistedstate` 持久化。
 
 ## Recommended IDE Setup
 
@@ -26,23 +38,23 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 ## Project Setup
 
 ```sh
-pnpm install
+vp install
 ```
 
 ### Compile and Hot-Reload for Development
 
 ```sh
-pnpm dev
+vp dev
 ```
 
 ### Type-Check, Compile and Minify for Production
 
 ```sh
-pnpm build
+vp run build
 ```
 
 ### Run Unit Tests with [Vitest](https://vitest.dev/)
 
 ```sh
-pnpm test:unit
+vp test
 ```
