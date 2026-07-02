@@ -11,7 +11,7 @@
     "build-only": "vp build",
     "type-check": "vue-tsc --build",
     "format": "vp fmt src/",
-    "prepare": "vp config"
+    "prepare": "vp config --no-agent"
   },
   "dependencies": {
     "@vueuse/core": "^14.3.0",

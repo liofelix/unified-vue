@@ -13,6 +13,8 @@ Docs are local at `node_modules/vite-plus/docs` or online at https://viteplus.de
 - [ ] Check if there are `vite.config.ts` tasks or `package.json` scripts necessary for validation, run via `vp run <script>`.
 - [ ] If setup, runtime, or package-manager behavior looks wrong, run `vp env doctor` and include its output when asking for help.
 
+<!--VITE PLUS END-->
+
 ## 开发规范
 
 - Vue 组件命名遵循 Vue 官方风格指南，统一使用多单词组件名，避免单词组件名。
@@ -33,5 +35,3 @@ Docs are local at `node_modules/vite-plus/docs` or online at https://viteplus.de
 - 文件夹命名统一使用小写，多个单词使用 kebab-case。
 - TypeScript 类型定义优先就近维护；模块私有类型放在模块内 `types.ts`，跨模块共享类型放在 `src/types`。
 - 新增公共能力前，应优先检查 `components`、`constants`、`utils`、`hooks`、`directives`、`stores` 中是否已有可复用实现，避免重复建设。
-
-<!--VITE PLUS END-->
