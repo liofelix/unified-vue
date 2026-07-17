@@ -3,6 +3,8 @@ const props = withDefaults(
   defineProps<{
     name: string
     size?: number | string
+    width?: number | string
+    height?: number | string
     color?: string
   }>(),
   {
@@ -12,11 +14,13 @@ const props = withDefaults(
 )
 
 const symbolId = computed(() => `#icon-${props.name}`)
-const iconSize = computed(() => (typeof props.size === 'number' ? `${props.size}px` : props.size))
+const toCssSize = (value: number | string) => (typeof value === 'number' ? `${value}px` : value)
+const iconWidth = computed(() => toCssSize(props.width ?? props.size))
+const iconHeight = computed(() => toCssSize(props.height ?? props.size))
 </script>
 
 <template>
-  <svg class="app-svg-icon" :style="{ width: iconSize, height: iconSize, color }">
+  <svg class="app-svg-icon" :style="{ width: iconWidth, height: iconHeight, color }">
     <use :href="symbolId" />
   </svg>
 </template>
