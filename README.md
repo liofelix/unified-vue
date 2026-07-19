@@ -14,6 +14,22 @@
 - 切换语言时同步更新 `vue-i18n`、`dayjs` 和 Antdv Next 的 locale。
 - 当前语言会通过 `pinia-plugin-persistedstate` 持久化。
 
+## 运行时配置
+
+应用运行时配置位于 `public/config/app.config.js`，由 `index.html` 在应用入口脚本之前加载并注入到 `window.APP_CONFIG`。
+
+```ts
+interface AppConfig {
+  appTitle: string
+}
+```
+
+业务代码通过 `src/hooks/useAppConfig.ts` 统一读取配置。当前 `appTitle` 用于设置浏览器页面标题。构建后可直接修改 `dist/config/app.config.js`，无需重新构建应用。
+
+## 项目目录约定
+
+页面统一放在 `src/pages/<module>/index.vue`，页面私有组件放在对应页面目录的 `components` 子目录。当前首页入口为 `src/pages/home/index.vue`。
+
 ## Recommended IDE Setup
 
 [VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).

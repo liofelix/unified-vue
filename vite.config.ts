@@ -1,6 +1,6 @@
 import { fileURLToPath, URL } from 'node:url'
 
-import { defineConfig, lazyPlugins } from 'vite-plus'
+import { defineConfig, lazyPlugins, loadEnv } from 'vite-plus'
 import { AntdvNextResolver } from '@antdv-next/auto-import-resolver'
 import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
@@ -11,7 +11,12 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
+const env = loadEnv('development', process.cwd(), '')
+
 export default defineConfig({
+  server: {
+    port: Number(env.VITE_PORT) || 5173,
+  },
   staged: {
     '*': 'vp check --fix',
   },
