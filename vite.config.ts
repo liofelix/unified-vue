@@ -4,7 +4,6 @@ import { defineConfig, lazyPlugins, loadEnv } from 'vite-plus'
 import { AntdvNextResolver } from '@antdv-next/auto-import-resolver'
 import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
-import { visualizer } from 'rollup-plugin-visualizer'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
@@ -15,7 +14,7 @@ const env = loadEnv('development', process.cwd(), '')
 
 export default defineConfig({
   server: {
-    port: Number(env.VITE_PORT) || 5173,
+    port: Number(env.VITE_PORT) || 5175,
   },
   staged: {
     '*': 'vp check --fix',
@@ -58,13 +57,6 @@ export default defineConfig({
       symbolId: 'icon-[dir]-[name]',
     }),
     vueDevTools(),
-    visualizer({
-      filename: 'dist/bundle-analysis.html',
-      template: 'treemap',
-      gzipSize: true,
-      brotliSize: true,
-      sourcemap: false,
-    }),
   ]),
   resolve: {
     alias: {

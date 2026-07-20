@@ -19,14 +19,14 @@
     "dayjs": "^1.11.21",
     "pinia": "^4.0.2",
     "pinia-plugin-persistedstate": "^4.7.1",
-    "vue": "^3.5.39",
+    "vue": "^3.5.40",
     "vue-i18n": "^11.4.6",
     "vue-router": "^5.2.0"
   },
   "devDependencies": {
     "@antdv-next/auto-import-resolver": "^1.1.0",
     "@antdv-next/tailwind": "^1.1.1",
-    "@tailwindcss/vite": "^4.3.2",
+    "@tailwindcss/vite": "^4.3.3",
     "@tsconfig/node24": "^24.0.4",
     "@types/jsdom": "^28.0.3",
     "@types/node": "^26.1.1",
@@ -37,9 +37,8 @@
     "fast-glob": "^3.3.3",
     "jsdom": "^29.1.1",
     "npm-run-all2": "^9.0.2",
-    "rollup-plugin-visualizer": "^7.0.1",
     "sass": "^1.101.0",
-    "tailwindcss": "^4.3.2",
+    "tailwindcss": "^4.3.3",
     "typescript": "~7.0.2",
     "unplugin-auto-import": "^21.0.0",
     "unplugin-icons": "^23.0.1",
@@ -49,6 +48,13 @@
     "vite-plugin-vue-devtools": "^8.1.5",
     "vite-plus": "catalog:",
     "vitest": "catalog:"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.15.1",
+      "onFail": "download"
+    }
   },
   "engines": {
     "node": "^22.18.0 || >=24.12.0"
