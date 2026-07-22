@@ -15,12 +15,13 @@
   },
   "dependencies": {
     "@vueuse/core": "^14.3.0",
-    "antdv-next": "^1.4.3",
+    "antdv-next": "^1.4.4",
     "dayjs": "^1.11.21",
+    "echarts": "^6.1.0",
     "pinia": "^4.0.2",
     "pinia-plugin-persistedstate": "^4.7.1",
     "vue": "^3.5.40",
-    "vue-i18n": "^11.4.6",
+    "vue-i18n": "^11.4.7",
     "vue-router": "^5.2.0"
   },
   "devDependencies": {

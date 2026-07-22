@@ -39,6 +39,8 @@ Docs are local at `node_modules/vite-plus/docs` or online at https://viteplus.de
 - 公共组件放 `src/components`，文件名用 PascalCase、多单词命名；页面放 `src/pages/<module>/index.vue`，页面私有组件放同目录 `components`。
 - 布局放 `src/layouts`，按布局语义命名；Pinia 按业务模块放 `src/stores/<module>/index.ts`，实例和插件放 `src/stores/index.ts`。
 - 国际化资源放 `src/locales/messages`，类型和初始化逻辑放 `src/locales`；常量、工具、组合式函数、指令分别放 `src/constants`、`src/utils`、`src/hooks`、`src/directives`。
+- 项目自定义组合式函数统一使用 `useAppXxx` 命名；文件名必须与主导出函数一致，例如 `useAppConfig.ts`、`useAppTable.ts`、`useAppECharts.ts`。
+- 与组合式函数名称直接对应的 Options 类型同步使用 `UseAppXxxOptions` 命名，例如 `UseAppEChartsOptions`。
 - 静态资源放 `src/assets`，按 `icons`、`images`、`styles`、`fonts` 分类；全局样式放 `src/assets/styles`。
 - 文件夹使用小写 kebab-case；模块私有类型就近放 `types.ts`，跨模块类型放 `src/types`。
 - 新增公共能力前先检查现有 `components`、`constants`、`utils`、`hooks`、`directives`、`stores`，避免重复实现。
