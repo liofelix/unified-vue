@@ -13,6 +13,7 @@
 - 菜单选中项来自 `src/stores/locale/index.ts` 中的 `locale`。
 - 切换语言时同步更新 `vue-i18n`、`dayjs` 和 Antdv Next 的 locale。
 - 当前语言会通过 `pinia-plugin-persistedstate` 持久化。
+- 默认语言来自运行时配置 `appLocale`，支持 `zh-CN` 和 `en-US`；已有持久化语言优先于该默认值。
 
 ## 运行时配置
 
@@ -21,10 +22,18 @@
 ```ts
 interface AppConfig {
   appTitle: string
+  appLocale: AppLocale
 }
 ```
 
-业务代码通过 `src/hooks/useAppConfig.ts` 统一读取配置。当前 `appTitle` 用于设置浏览器页面标题。构建后可直接修改 `dist/config/app.config.js`，无需重新构建应用。
+```js
+window.APP_CONFIG = {
+  appTitle: 'Unified Vue',
+  appLocale: 'zh-CN',
+}
+```
+
+业务代码通过 `src/hooks/useAppConfig.ts` 统一读取配置。`appTitle` 用于设置浏览器页面标题，`appLocale` 用于设置应用默认语言。构建后可直接修改 `dist/config/app.config.js`，无需重新构建应用。
 
 ## 项目目录约定
 

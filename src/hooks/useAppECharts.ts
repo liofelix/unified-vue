@@ -13,11 +13,6 @@ export interface UseAppEChartsOptions {
   theme?: Parameters<typeof echarts.init>[1]
 }
 
-/**
- * 管理一个 ECharts 容器及其实例。
- *
- * 每次调用应传入一个独立且固定的容器。组件卸载时自动销毁实例。
- */
 export function useAppECharts(chartContainer: EChartsContainer, options: UseAppEChartsOptions) {
   const { option, theme } = options
   const chartInstance = shallowRef<EChartsType>()
@@ -49,8 +44,6 @@ export function useAppECharts(chartContainer: EChartsContainer, options: UseAppE
     () => toValue(option),
     (chartOption) => {
       if (chartOption) {
-        // Vue 会递归解包普通 ref 中的对象类型，而 EChartsOption 含复杂联合类型。
-        // 运行时对象结构不变，因此仅在传入 ECharts 的边界恢复其公开类型。
         setChartOption(chartOption as EChartsOption)
       }
     },

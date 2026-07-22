@@ -4,7 +4,8 @@ import dayjs from 'dayjs'
 import enUS from 'antdv-next/locale/en_US'
 import zhCN from 'antdv-next/locale/zh_CN'
 
-import i18n, { DEFAULT_LOCALE } from '@/locales'
+import { useAppConfig } from '@/hooks/useAppConfig'
+import i18n from '@/locales'
 import type { AppLocale } from '@/locales/types'
 
 const dayjsLocales: Record<AppLocale, string> = {
@@ -20,7 +21,8 @@ function syncLocale(locale: AppLocale) {
 export const useLocaleStore = defineStore(
   'locale',
   () => {
-    const locale = ref<AppLocale>(DEFAULT_LOCALE)
+    const { appLocale } = useAppConfig()
+    const locale = ref<AppLocale>(appLocale)
 
     const antdLocale = computed(() => (locale.value === 'zh-CN' ? zhCN : enUS))
 
