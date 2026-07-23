@@ -2,7 +2,7 @@
 
 # Using Vite+, the Unified Toolchain for the Web
 
-This project is using Vite+, a unified toolchain built on top of Vite, Rolldown, Vitest, tsdown, Oxlint, Oxfmt, and Vite Task. Vite+ wraps runtime management, package management, and frontend tooling in a single global CLI called `vp`. Vite+ is distinct from Vite, and it invokes Vite through `vp dev` and `vp build`. Run `vp help` to print a list of commands and `vp <command> --help` for information about a specific command.
+This project is using Vite+, a unified toolchain built on top of Vite, Rolldown, tsdown, Oxlint, Oxfmt, and Vite Task. Vite+ wraps runtime management, package management, and frontend tooling in a single global CLI called `vp`. Vite+ is distinct from Vite, and it invokes Vite through `vp dev` and `vp build`. Run `vp help` to print a list of commands and `vp <command> --help` for information about a specific command.
 
 Docs are local at `node_modules/vite-plus/docs` or online at https://viteplus.dev/guide/.
 
@@ -10,7 +10,7 @@ Docs are local at `node_modules/vite-plus/docs` or online at https://viteplus.de
 
 - [ ] Run `vp install` when dependencies are missing or dependency manifests have changed.
 - [ ] Never create, configure, or use a `.pnpm-store` directory inside this project. Dependencies must be installed into the project `node_modules`.
-- [ ] Run `vp check` and `vp test run` to check formatting, lint, types, and tests.
+- [ ] Run `vp check` to check formatting, lint, and types.
 - [ ] Run `vp run build` for release-oriented or build-pipeline changes.
 - [ ] If setup, runtime, or package-manager behavior looks wrong, run `vp env doctor` and include its output when asking for help.
 
@@ -31,7 +31,7 @@ Docs are local at `node_modules/vite-plus/docs` or online at https://viteplus.de
 
 - 只使用现有依赖；依赖缺失或 `package.json`/`pnpm-lock.yaml` 变化时运行 `vp install`。
 - 禁止创建、配置或使用项目内 `.pnpm-store`；依赖必须安装到项目 `node_modules`。
-- 提交前运行 `vp check` 和 `vp test run`；发布或构建链路变更再运行 `vp run build`。
+- 提交前运行 `vp check`；发布或构建链路变更再运行 `vp run build`。
 - 安装、运行时或包管理异常时运行 `vp env doctor`，并提供输出。
 
 ## 目录与模块职责

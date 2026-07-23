@@ -36,13 +36,6 @@ export default defineConfig({
     semi: false,
     singleQuote: true,
   },
-  test: {
-    server: {
-      deps: {
-        inline: ['antdv-next', /\/node_modules\/@v-c\/picker\//],
-      },
-    },
-  },
   plugins: lazyPlugins(() => [
     vue(),
     tailwindcss(),

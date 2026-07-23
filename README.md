@@ -79,9 +79,3 @@ vp dev
 ```sh
 vp run build
 ```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-vp test
-```
