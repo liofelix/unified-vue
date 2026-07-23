@@ -40,7 +40,7 @@ function handleLocaleMenuClick({ key }: { key: string }) {
     >
       <a-button type="text" aria-label="切换语言">
         <template #icon>
-          <AppSvgIcon name="common-language" size="16" />
+          <AppSvgIcon name="locale" size="16" />
         </template>
       </a-button>
     </a-dropdown>
