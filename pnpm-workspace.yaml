@@ -4,6 +4,8 @@ catalog:
   vite: npm:@voidzero-dev/vite-plus-core@^0.2.5
   vitest: 4.1.10
   vite-plus: ^0.2.5
+minimumReleaseAgeExclude:
+  - '@liofelix/unified-request@0.1.0'
 overrides:
   'svg-baker@1.7.0>micromatch': 4.0.8
   vite: 'catalog:'

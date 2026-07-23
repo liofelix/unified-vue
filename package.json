@@ -14,8 +14,10 @@
     "prepare": "vp config --no-agent"
   },
   "dependencies": {
+    "@liofelix/unified-request": "^0.1.0",
     "@vueuse/core": "^14.3.0",
     "antdv-next": "^1.4.4",
+    "axios": "^1.18.1",
     "dayjs": "^1.11.21",
     "echarts": "^6.1.0",
     "pinia": "^4.0.2",

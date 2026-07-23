@@ -1,20 +1,13 @@
 export default {
+  login: {
+    title: '登录',
+  },
+  notFound: {
+    title: '404 - 页面不存在',
+    description: '抱歉，您访问的页面不存在。',
+    backHome: '返回首页',
+  },
   home: {
-    chart: {
-      title: '月度访问趋势',
-      ariaLabel: '月度访问趋势折线图',
-      description: '展示一月至六月访问量变化的折线图。',
-      xAxis: '月份',
-      yAxis: '访问量',
-      series: '访问量',
-      months: {
-        january: '一月',
-        february: '二月',
-        march: '三月',
-        april: '四月',
-        may: '五月',
-        june: '六月',
-      },
-    },
+    title: '首页',
   },
 }

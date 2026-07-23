@@ -21,6 +21,7 @@
 
 ```ts
 interface AppConfig {
+  appSystemApi: string
   appTitle: string
   appLocale: AppLocale
 }
@@ -28,12 +29,13 @@ interface AppConfig {
 
 ```js
 window.APP_CONFIG = {
+  appSystemApi: '/system-api',
   appTitle: 'Unified Vue',
   appLocale: 'zh-CN',
 }
 ```
 
-业务代码通过 `src/hooks/useAppConfig.ts` 统一读取配置。`appTitle` 用于设置浏览器页面标题，`appLocale` 用于设置应用默认语言。构建后可直接修改 `dist/config/app.config.js`，无需重新构建应用。
+业务代码通过 `src/hooks/useAppConfig.ts` 统一读取配置。`appSystemApi` 用于统一配置系统 API 基地址，`appTitle` 用于设置浏览器页面标题，`appLocale` 用于设置应用默认语言。构建后可直接修改 `dist/config/app.config.js`，无需重新构建应用。
 
 ## 项目目录约定
 

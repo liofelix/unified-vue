@@ -15,6 +15,13 @@ const env = loadEnv('development', process.cwd(), '')
 export default defineConfig({
   server: {
     port: Number(env.VITE_PORT) || 5175,
+    proxy: {
+      '/system-api': {
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/system-api/, ''),
+        target: 'http://10.1.113.253:5012/admin-api',
+      },
+    },
   },
   staged: {
     '*': 'vp check --fix',
@@ -42,6 +49,7 @@ export default defineConfig({
     AutoImport({
       imports: [
         'vue',
+        'vue-router',
         '@vueuse/core',
         {
           'vue-i18n': ['useI18n'],

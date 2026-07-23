@@ -17,6 +17,7 @@ declare module 'vue' {
     ADropdown: typeof import('antdv-next')['Dropdown']
     AppLocaleSwitcher: typeof import('./src/components/AppLocaleSwitcher.vue')['default']
     AppSvgIcon: typeof import('./src/components/AppSvgIcon.vue')['default']
+    AResult: typeof import('antdv-next')['Result']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

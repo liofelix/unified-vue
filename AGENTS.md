@@ -40,6 +40,7 @@ Docs are local at `node_modules/vite-plus/docs` or online at https://viteplus.de
 - 布局放 `src/layouts`，按布局语义命名；Pinia 按业务模块放 `src/stores/<module>/index.ts`，实例和插件放 `src/stores/index.ts`。
 - 国际化资源放 `src/locales/messages`，类型和初始化逻辑放 `src/locales`；常量、工具、组合式函数、指令分别放 `src/constants`、`src/utils`、`src/hooks`、`src/directives`。
 - `APP_CONFIG` 属性统一使用 camelCase，并以 `app` 为前缀，例如 `appTitle`、`appLocale`。
+- API 请求模块统一放在 `src/api`；API 接口函数统一使用具名 `export function` 导出，不使用 `export const xxx = () => {}`。
 - 项目自定义组合式函数统一使用 `useAppXxx` 命名；文件名必须与主导出函数一致，例如 `useAppConfig.ts`、`useAppTable.ts`、`useAppECharts.ts`。
 - 与组合式函数名称直接对应的 Options 类型同步使用 `UseAppXxxOptions` 命名，例如 `UseAppEChartsOptions`。
 - 静态资源放 `src/assets`，按 `icons`、`images`、`styles`、`fonts` 分类；全局样式放 `src/assets/styles`。
